@@ -3,16 +3,17 @@
   "name": "wildexplorer",
   "builds": [
     {
-      "src": "dist/wildexplorer/**/*",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/angular"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/wildexplorer/index.html"
+      "dest": "/index.html"
     }
   ],
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/wildexplorer"
+  "outputDirectory": "dist/wildexplorer",
+  "installCommand": "npm install"
 }
