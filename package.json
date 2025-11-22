@@ -1,11 +1,13 @@
 {
   "name": "wildexplorer",
   "version": "0.0.0",
-"scripts": {
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
     "build": "ng build --configuration production",
-    "dev": "ng serve"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-
   "dependencies": {
     "@angular/animations": "^17.0.0",
     "@angular/common": "^17.0.0",
