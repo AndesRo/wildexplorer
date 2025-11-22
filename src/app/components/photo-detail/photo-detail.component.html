@@ -1,0 +1,46 @@
+<div
+  class="modal-backdrop"
+  [@backdropAnimation]
+  (click)="onBackdropClick($event)"
+  *ngIf="photo"
+>
+  <div class="modal-content" [@modalAnimation] (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="onClose()">✕</button>
+
+    <div class="modal-body">
+      <div class="image-container">
+        <img [src]="photo.imagen" [alt]="photo.titulo" class="detail-image">
+      </div>
+
+      <div class="detail-content">
+        <h2 class="detail-title">{{ photo.titulo }}</h2>
+
+        <div class="detail-meta">
+          <div class="meta-item">
+            <strong>Fotógrafo:</strong>
+            <span>{{ photo.autor }}</span>
+          </div>
+
+          <div class="meta-item">
+            <strong>Ubicación:</strong>
+            <span>{{ photo.ubicacion }}</span>
+          </div>
+
+          <div class="meta-item" *ngIf="photo.especie">
+            <strong>Especie:</strong>
+            <span>{{ photo.especie }}</span>
+          </div>
+
+          <div class="meta-item" *ngIf="photo.coordenadas">
+            <strong>Coordenadas:</strong>
+            <span>{{ photo.coordenadas }}</span>
+          </div>
+        </div>
+
+        <div class="description">
+          <p>{{ photo.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

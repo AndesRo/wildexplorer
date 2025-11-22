@@ -1,0 +1,56 @@
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-header">
+      <h2>Vida Salvaje</h2>
+      <p>Descubre la belleza de la naturaleza a través de estas impresionantes fotografías</p>
+    </div>
+
+    <div class="search-container">
+      <div class="search-box">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+          placeholder="Buscar por especie, ubicación..."
+          class="search-input"
+        >
+        <button (click)="clearSearch()" class="clear-btn" *ngIf="searchTerm">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <div class="gallery-grid" [@staggerAnimation]="filteredPhotos.length">
+      <div
+        *ngFor="let photo of filteredPhotos"
+        class="photo-card"
+        [@fadeIn]
+        (click)="viewPhoto(photo)"
+      >
+        <div class="card-image">
+          <img [src]="photo.imagen" [alt]="photo.titulo" loading="lazy">
+          <div class="card-overlay">
+            <button class="view-btn">Ver detalles</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="photo-title">{{ photo.titulo }}</h3>
+          <p class="photo-author">Por: {{ photo.autor }}</p>
+          <p class="photo-location">{{ photo.ubicacion }}</p>
+          <p class="photo-species" *ngIf="photo.especie">{{ photo.especie }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="filteredPhotos.length === 0">
+      <h3>No se encontraron resultados</h3>
+      <p>Intenta con otros términos de búsqueda</p>
+    </div>
+  </div>
+</section>
+
+<app-photo-detail
+  *ngIf="selectedPhoto"
+  [photo]="selectedPhoto"
+  (close)="selectedPhoto = null"
+></app-photo-detail>

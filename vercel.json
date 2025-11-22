@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "wildexplorer",
+  "builds": [
+    {
+      "src": "dist/wildexplorer/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/wildexplorer/index.html"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/wildexplorer"
+}

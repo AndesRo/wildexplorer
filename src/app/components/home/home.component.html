@@ -1,0 +1,15 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Explora la Vida Salvaje</h1>
+    <p class="hero-subtitle">Descubre la belleza y diversidad de la naturaleza a través de impresionantes fotografías de todo el mundo</p>
+    <button class="cta-button" routerLink="/galeria">
+      Explorar Galería
+    </button>
+  </div>
+  <div class="hero-stats">
+    <div *ngFor="let stat of featuredStats" class="stat-item">
+      <span class="stat-number">{{ stat.number }}</span>
+      <span class="stat-label">{{ stat.label }}</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "titulo": "León en el Serengeti",
+    "autor": "Jane Doe",
+    "ubicacion": "Tanzania",
+    "especie": "Panthera leo",
+    "descripcion": "Un majestuoso león al amanecer en el parque nacional Serengeti.",
+    "imagen": "assets/images/leon.jpg",
+    "coordenadas": "-2.3333, 34.8333"
+  },
+  {
+    "id": 2,
+    "titulo": "Elefante en el Amboseli",
+    "autor": "John Smith",
+    "ubicacion": "Kenia",
+    "especie": "Loxodonta africana",
+    "descripcion": "Elefante africano con el monte Kilimanjaro de fondo.",
+    "imagen": "assets/images/elefante.jpg",
+    "coordenadas": "-2.6531, 37.2506"
+  },
+  {
+    "id": 3,
+    "titulo": "Guepardo en la sabana",
+    "autor": "Maria Rodriguez",
+    "ubicacion": "Botswana",
+    "especie": "Acinonyx jubatus",
+    "descripcion": "Guepardo en plena carrera durante la caza.",
+    "imagen": "assets/images/gepardo.jpg",
+    "coordenadas": "-21.2552, 23.4181"
+  },
+  {
+    "id": 4,
+    "titulo": "Gorila de montaña",
+    "autor": "David Wilson",
+    "ubicacion": "Ruanda",
+    "especie": "Gorilla beringei",
+    "descripcion": "Familia de gorilas en las montañas Virunga.",
+    "imagen": "assets/images/gorila.jpg",
+    "coordenadas": "-1.4993, 29.4874"
+  },
+  {
+    "id": 5,
+    "titulo": "Tigre de Bengala",
+    "autor": "Priya Sharma",
+    "ubicacion": "India",
+    "especie": "Panthera tigris",
+    "descripcion": "Tigre de Bengala en el Parque Nacional de Bandhavgarh.",
+    "imagen": "assets/images/tigre.jpg",
+    "coordenadas": "23.6850, 80.9450"
+  },
+  {
+    "id": 6,
+    "titulo": "Pingüinos emperador",
+    "autor": "Carlos Mendez",
+    "ubicacion": "Antártida",
+    "especie": "Aptenodytes forsteri",
+    "descripcion": "Colonia de pingüinos emperador en el hielo antártico.",
+    "imagen": "assets/images/pinguino.jpg",
+    "coordenadas": "-77.8443, 166.6673"
+  }
+]
