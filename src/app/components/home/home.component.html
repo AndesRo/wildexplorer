@@ -1,6 +1,6 @@
 <section class="hero-section">
   <!-- Fondo con imagen de Unsplash -->
-  <div class="hero-background"></div>
+  <div class="hero-background" [style.background-image]="'url(' + currentBackground + ')'"></div>
 
   <!-- Overlay para mejor contraste -->
   <div class="hero-overlay"></div>
@@ -8,7 +8,7 @@
   <div class="hero-content">
     <div class="hero-text">
       <h1 class="hero-title">Explora la Vida Salvaje</h1>
-      <p class="hero-subtitle">Descubre la belleza y diversidad de la naturaleza a través de impresionantes fotografías de fotógrafos profesionales alrededor del mundo</p>
+      <p class="hero-subtitle">Descubre la belleza y diversidad de la naturaleza a través de impresionantes fotografías y documentales alrededor del mundo</p>
       <div class="hero-actions">
         <button class="cta-button primary" routerLink="/galeria">
           <span>Explorar Galería</span>
@@ -16,30 +16,15 @@
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button class="cta-button secondary" (click)="scrollToStats()">
-          <span>Conocer Más</span>
+        <button class="cta-button secondary" (click)="toggleVideos()">
+          <span>{{ showVideos ? 'Ocultar Videos' : 'Documentales' }}</span>
         </button>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <div class="floating-card">
-        <div class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                  stroke="currentColor" stroke-width="2"/>
-            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-                  stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </div>
-        <h3>Exploración Global</h3>
-        <p>Fotografías de los lugares más remotos del planeta</p>
       </div>
     </div>
   </div>
 
   <!-- Stats Section -->
-  <div class="hero-stats" id="stats-section">
+  <div class="hero-stats">
     <div *ngFor="let stat of featuredStats" class="stat-item">
       <span class="stat-number">{{ stat.number }}</span>
       <span class="stat-label">{{ stat.label }}</span>
@@ -47,8 +32,45 @@
   </div>
 
   <!-- Scroll Indicator -->
-  <div class="scroll-indicator" (click)="scrollToStats()">
-    <span>Descubre más</span>
-    <div class="scroll-arrow"></div>
+  <div class="scroll-indicator" (click)="toggleVideos()">
+    <span>{{ showVideos ? 'Volver Arriba' : 'Descubre más' }}</span>
+    <div class="scroll-arrow" [class.rotated]="showVideos"></div>
+  </div>
+</section>
+
+<!-- Videos Section -->
+<section class="videos-section" id="videos-section" *ngIf="showVideos">
+  <div class="container">
+    <div class="section-header">
+      <h2>Documentales de Vida Salvaje</h2>
+      <p>Sumérgete en el mundo natural con estos increíbles documentales</p>
+    </div>
+
+    <div class="videos-grid">
+      <div class="video-card" *ngFor="let video of youtubeVideos">
+        <div class="video-container">
+          <iframe
+            [src]="getSafeYouTubeUrl(video.id)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Video de YouTube: {{video.title}}">
+          </iframe>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">{{ video.title }}</h3>
+          <p class="video-description">{{ video.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="videos-cta">
+      <h3>¿Listo para explorar más?</h3>
+      <p>Visita nuestra galería para descubrir fotografías increíbles de vida salvaje</p>
+      <button class="cta-button primary" routerLink="/galeria">
+        <span>Ver Galería Completa</span>
+      </button>
+    </div>
   </div>
 </section>
